@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- ══ WEBVIEW ══ -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Page load progress bar -->
+    <ProgressBar
+        android:id="@+id/pageProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:progressTint="@color/accent_blue"
+        android:indeterminate="false"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ══ LOADING OVERLAY ══ -->
+    <LinearLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/bg_dark"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminateTint="@color/accent_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading your dashboard…"
+            android:textColor="@color/text_sub"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/bricolage" />
+    </LinearLayout>
+
+    <!-- ══ LOGIN CONTAINER ══ -->
+    <ScrollView
+        android:id="@+id/loginContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/bg_dark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="28dp"
+            android:minHeight="600dp">
+
+            <!-- Logo -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                app:cardCornerRadius="26dp"
+                app:cardElevation="20dp"
+                android:layout_marginBottom="24dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_logo_bg"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analytics"
+                android:textColor="@color/text_main"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:letterSpacing="-0.03"
+                android:fontFamily="@font/bricolage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pro"
+                android:textColor="@color/accent_blue"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:letterSpacing="-0.03"
+                android:fontFamily="@font/bricolage"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your JuicyChat earnings dashboard"
+                android:textColor="@color/text_sub"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginBottom="36dp"
+                android:fontFamily="@font/bricolage" />
+
+            <!-- Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email Address"
+                        android:textColor="@color/text_sub"
+                        android:textSize="11sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.08"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/bricolage" />
+
+                    <EditText
+                        android:id="@+id/emailInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:background="@drawable/input_bg"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:hint="you@example.com"
+                        android:hintTextColor="@color/text_sub"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        android:fontFamily="@font/bricolage"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="License Key"
+                        android:textColor="@color/text_sub"
+                        android:textSize="11sp"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.08"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/bricolage" />
+
+                    <EditText
+                        android:id="@+id/keyInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:background="@drawable/input_bg"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:hint="XXXX-XXXX-XXXX-XXXX"
+                        android:hintTextColor="@color/text_sub"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
+                        android:fontFamily="monospace"
+                        android:layout_marginBottom="4dp" />
+
+                    <!-- Error -->
+                    <TextView
+                        android:id="@+id/errorMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#f87171"
+                        android:textSize="12sp"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone"
+                        android:fontFamily="@font/bricolage" />
+
+                    <!-- Progress -->
+                    <ProgressBar
+                        android:id="@+id/loginProgress"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:indeterminateTint="@color/accent_blue"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Unlock Dashboard"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/accent_blue"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="14dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/bricolage" />
+
+            <!-- Divider -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <View android:layout_width="0dp" android:layout_height="1dp"
+                    android:layout_weight="1" android:background="@color/border" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="or" android:textColor="@color/text_sub" android:textSize="12sp"
+                    android:paddingStart="12dp" android:paddingEnd="12dp" />
+                <View android:layout_width="0dp" android:layout_height="1dp"
+                    android:layout_weight="1" android:background="@color/border" />
+            </LinearLayout>
+
+            <!-- Patreon Button -->
+            <Button
+                android:id="@+id/btnPatreon"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Continue with Patreon"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="14dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/bricolage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have access? Join on Patreon"
+                android:textColor="@color/text_sub"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:fontFamily="@font/bricolage" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

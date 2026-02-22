@@ -1,0 +1,30 @@
+package com.analyticspro.app
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+
+@SuppressLint("CustomSplashScreen")
+class SplashActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            val prefs = TokenManager(this)
+            val intent = Intent(this, MainActivity::class.java)
+
+            if (prefs.hasValidToken()) {
+                intent.putExtra(MainActivity.EXTRA_SKIP_LOGIN, true)
+            }
+
+            startActivity(intent)
+            finish()
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }, 1600)
+    }
+}
